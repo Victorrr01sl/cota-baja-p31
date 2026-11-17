@@ -1,0 +1,107 @@
+// Valores exportados de la colección «Cota Baja · Sistema» de Figma.
+$primary: #193d32;
+$secondary: #dce6c9;
+$accent: #ddfc69;
+$paper: #f7f7ef;
+$white: #ffffff;
+$ink: #172a22;
+$muted: #45574c;
+$border: #839185;
+$hover: #c9ef52;
+$pressed: #b4da45;
+$art-sky: #d9e8ce;
+$art-haze: #a2bea0;
+$art-ridge: #71937c;
+$art-pine: #315e4a;
+$art-shadow: #12362d;
+$art-trail: #e5cb96;
+$art-sun: #f7eab8;
+$icon-color: $primary;
+
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 12px;
+$space-base: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-xxl: 48px;
+$space-section: 72px;
+$desktop-margin: 72px;
+$desktop-gutter: 24px;
+$desktop-columns: 12;
+$mobile-margin: 24px;
+$mobile-gutter: 12px;
+$mobile-columns: 4;
+$radius: 16px;
+$pill: 32px;
+$icon-size: 24px;
+$icon-large: 32px;
+$stroke: 2px;
+$field-height: 50px;
+$font-title: "Bricolage Grotesque";
+$font-body: "DM Sans";
+$weight-bold: 700;
+$weight-normal: 400;
+
+$type-scale: (
+  mobile: (
+    hero: (56px, 54px),
+    display: (40px, 42px),
+    h2: (32px, 36px),
+    h3: (23px, 28px),
+    lead: (16px, 24px),
+    body: (16px, 24px),
+    label: (15px, 21px),
+    small: (14px, 20px),
+    overline: (12px, 17px),
+    logo: (23px, 26px),
+  ),
+  desktop: (
+    hero: (88px, 86px),
+    display: (62px, 64px),
+    h2: (42px, 46px),
+    h3: (28px, 32px),
+    lead: (21px, 30px),
+    body: (16px, 24px),
+    label: (15px, 21px),
+    small: (14px, 20px),
+    overline: (12px, 17px),
+    logo: (27px, 30px),
+  ),
+);
+
+// Geometría de los marcos de Figma y ajustes de implementación web.
+$page-width: 1440px;
+$mobile-header: 68px;
+$desktop-header: 84px;
+$mobile-footer: 96px;
+$desktop-footer: 77px;
+$desktop-landing-top: 35px;
+$desktop-hero-min: 62px;
+$desktop-hero-size: 88px;
+$desktop-hero-ratio: 0.9772727272727273;
+$measure-hero: 433px;
+$art-max-height: 463px;
+$fact-mobile-height: 92px;
+$fact-desktop-height: 147px;
+$form-desktop-height: 470px;
+$summary-mobile-height: 300px;
+$summary-desktop-height: 420px;
+$field-width: 430px;
+$touch-target: 44px;
+$stroke-unitless: 2;
+$transition: 160ms ease;
+
+$space-11: 11px;
+$space-20: 20px;
+$space-22: 22px;
+$space-28: 28px;
+$space-40: 40px;
+$space-64: 64px;
+$space-88: 88px;
+$space-100: 100px;
+
+$breakpoints: (
+  tablet: 640px,
+  desktop: 1024px,
+);

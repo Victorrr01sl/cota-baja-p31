@@ -1,0 +1,462 @@
+@use "globals" as g;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../assets/fonts/bricolage-grotesque.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/dm-sans.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 1;
+  inset: g.$space-sm auto auto g.$space-sm;
+  padding: g.$space-sm g.$space-base;
+  transform: translateY(-170%);
+  background: g.$accent;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
+.icon {
+  flex: none;
+  inline-size: g.$icon-size;
+  block-size: g.$icon-size;
+  color: g.$icon-color;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: g.$stroke-unitless;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: g.$space-sm;
+  color: g.$primary;
+  font-family: g.$font-title, sans-serif;
+  font-weight: g.$weight-bold;
+  text-decoration: none;
+  white-space: nowrap;
+  @include g.type(logo);
+
+  @include g.respond-to(desktop) {
+    gap: g.$space-11;
+    @include g.type(logo, desktop);
+  }
+}
+
+.site-header {
+  &__bar {
+    display: flex;
+    min-block-size: g.$mobile-header;
+    align-items: center;
+    justify-content: space-between;
+    gap: g.$space-sm;
+    border-block-end: 1px solid g.$secondary;
+  }
+
+  &__context {
+    color: g.$muted;
+    font-weight: g.$weight-bold;
+    text-align: end;
+    @include g.type(small);
+  }
+
+  @include g.respond-to(desktop) {
+    &__bar {
+      min-block-size: g.$desktop-header;
+      padding-inline-end: g.$space-100;
+    }
+
+    &__context {
+      @include g.type(label);
+    }
+  }
+}
+
+.site-footer {
+  background: g.$primary;
+  color: g.$secondary;
+
+  &__content {
+    display: flex;
+    min-block-size: g.$mobile-footer;
+    flex-direction: column;
+    justify-content: center;
+    gap: g.$space-sm;
+    padding-block: g.$space-md;
+  }
+
+  .brand {
+    align-self: flex-start;
+    color: g.$white;
+
+    &:focus-visible {
+      outline-color: g.$accent;
+    }
+  }
+
+  p {
+    @include g.type(small);
+  }
+
+  @include g.respond-to(desktop) {
+    &__content {
+      min-block-size: g.$desktop-footer;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      align-self: auto;
+    }
+
+    p {
+      margin-inline-end: g.$space-88;
+    }
+  }
+}
+
+.eyebrow {
+  color: g.$primary;
+  font-weight: g.$weight-bold;
+  text-transform: uppercase;
+  @include g.type(overline);
+}
+
+.lead {
+  color: g.$muted;
+  @include g.type(lead);
+
+  @include g.respond-to(desktop) {
+    @include g.type(lead, desktop);
+  }
+}
+
+.hero-title {
+  margin-block-start: g.$space-md;
+  @include g.type(hero);
+
+  @include g.respond-to(desktop) {
+    margin-block-start: g.$space-base;
+    @include g.type(hero, desktop);
+    font-size: clamp(g.$desktop-hero-min, 6.12vw, g.$desktop-hero-size);
+    line-height: g.$desktop-hero-ratio;
+  }
+}
+
+.display-title {
+  margin-block-start: g.$space-md;
+  @include g.type(display);
+
+  + .lead {
+    margin-block-start: g.$space-md;
+  }
+
+  @include g.respond-to(desktop) {
+    @include g.type(display, desktop);
+
+    + .lead {
+      margin-block-start: g.$space-20;
+    }
+  }
+}
+
+.button {
+  display: inline-flex;
+  inline-size: fit-content;
+  align-items: center;
+  justify-content: center;
+  gap: g.$space-md;
+  padding: g.$space-base g.$space-lg;
+  border: 0;
+  border-radius: g.$pill;
+  background: g.$accent;
+  color: g.$ink;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: g.$weight-bold;
+  text-decoration: none;
+  @include g.type(label);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color g.$transition;
+  }
+
+  &:hover {
+    background: g.$hover;
+  }
+
+  &:active {
+    background: g.$pressed;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+}
+
+.landscape {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: g.$radius;
+  background: g.$art-sky;
+  object-fit: cover;
+}
+
+.hero {
+  &__description {
+    margin-block-start: g.$space-base;
+    max-inline-size: g.$measure-hero;
+  }
+
+  &__action {
+    margin-block-start: g.$space-20;
+  }
+
+  &__image {
+    aspect-ratio: 342 / 248;
+  }
+
+  @include g.respond-to(tablet) {
+    &__image {
+      max-block-size: g.$art-max-height;
+      aspect-ratio: 4 / 2;
+    }
+  }
+
+  @include g.respond-to(desktop) {
+    &__image {
+      aspect-ratio: 746 / 463;
+    }
+
+    &__description {
+      margin-block-start: g.$space-20;
+    }
+
+    &__action {
+      margin-block-start: g.$space-xs;
+    }
+  }
+}
+
+.outing__name {
+  margin-block-start: g.$space-sm;
+
+  @include g.respond-to(desktop) {
+    margin-block-start: g.$space-md;
+  }
+}
+
+.fact {
+  display: flex;
+  min-block-size: g.$fact-mobile-height;
+  align-items: flex-start;
+  gap: g.$space-md;
+  padding: g.$space-base;
+  @include g.panel(g.$white);
+
+  > .icon {
+    margin-block-start: g.$space-xs;
+  }
+
+  h3 {
+    color: g.$ink;
+    @include g.type(h3);
+  }
+
+  p {
+    margin-block-start: g.$space-xs;
+    color: g.$muted;
+    @include g.type(small);
+  }
+
+  @include g.respond-to(tablet) {
+    flex-direction: column;
+  }
+
+  @include g.respond-to(desktop) {
+    min-block-size: g.$fact-desktop-height;
+    gap: g.$space-md;
+    padding: g.$space-20 g.$space-22;
+
+    > .icon {
+      margin-block-start: 0;
+    }
+
+    h3 {
+      @include g.type(h3, desktop);
+    }
+
+    p {
+      margin-block-start: g.$space-sm;
+    }
+  }
+}
+
+.back-link {
+  display: inline-flex;
+  min-block-size: g.$touch-target;
+  align-items: center;
+  gap: g.$space-sm;
+  color: g.$primary;
+  font-weight: g.$weight-bold;
+  text-decoration: none;
+  @include g.type(label);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.booking-form,
+.summary {
+  h2 {
+    color: g.$ink;
+    @include g.type(h3);
+
+    @include g.respond-to(desktop) {
+      @include g.type(h3, desktop);
+    }
+  }
+}
+
+.booking-form {
+  padding: g.$space-20;
+  @include g.panel(g.$white);
+
+  &__fields {
+    display: grid;
+    max-inline-size: g.$field-width;
+    gap: g.$space-sm;
+    margin-block-start: g.$space-20;
+  }
+
+  &__action {
+    margin-block-start: g.$space-20;
+  }
+
+  &__note {
+    margin-block-start: g.$space-base;
+    color: g.$muted;
+    @include g.type(small);
+  }
+
+  &__status {
+    color: g.$primary;
+    font-weight: g.$weight-bold;
+
+    &:not(:empty) {
+      margin-block-start: g.$space-base;
+    }
+  }
+
+  @include g.respond-to(desktop) {
+    min-block-size: g.$form-desktop-height;
+    padding: g.$space-lg g.$space-xl;
+
+    &__fields {
+      margin-block-start: g.$space-lg;
+    }
+
+    &__action {
+      margin-block-start: g.$space-base;
+    }
+  }
+}
+
+.field {
+  display: grid;
+  gap: g.$space-sm;
+  color: g.$ink;
+  font-weight: g.$weight-bold;
+  @include g.type(label);
+
+  input {
+    inline-size: 100%;
+    min-block-size: g.$field-height;
+    padding-inline: g.$space-base;
+    border: g.$stroke solid g.$border;
+    border-radius: g.$radius;
+    background: g.$white;
+    color: g.$ink;
+    font-family: inherit;
+    font-weight: g.$weight-normal;
+    @include g.type(body);
+
+    &::placeholder {
+      color: g.$muted;
+      opacity: 1;
+    }
+  }
+}
+
+.summary {
+  min-block-size: g.$summary-mobile-height;
+  padding: g.$space-base;
+  @include g.panel(g.$secondary);
+
+  &__image {
+    aspect-ratio: 310 / 118;
+    background: g.$primary;
+  }
+
+  h2 {
+    margin-block-start: g.$space-base;
+  }
+
+  &__details {
+    display: grid;
+    gap: g.$space-sm;
+    margin-block-start: g.$space-md;
+    padding: 0;
+    color: g.$primary;
+    font-weight: g.$weight-bold;
+    list-style: none;
+    @include g.type(label);
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: g.$space-sm;
+    }
+  }
+
+  @include g.respond-to(desktop) {
+    min-block-size: g.$summary-desktop-height;
+
+    &__image {
+      aspect-ratio: 494 / 177;
+    }
+
+    h2,
+    &__details {
+      margin-inline: g.$space-sm;
+    }
+
+    h2 {
+      margin-block-start: g.$space-base;
+    }
+
+    &__details {
+      gap: g.$space-20;
+      margin-block-start: g.$space-20;
+    }
+  }
+}

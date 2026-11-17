@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Formulario de demostración para reservar una plaza en la próxima salida de Cota Baja.">
+    <title>Reserva tu plaza | Cota Baja</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/montana.svg">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <svg class="icon-symbols" aria-hidden="true" width="0" height="0">
+      <symbol viewBox="0 0 24 24" id="icono-montana"><path d="M3 20 10 5l4.5 8 2.5-4 4 11H3Z M7 12l3 2 2.5-2"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-flecha"><path d="M5 12h14 M13 6l6 6-6 6"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-volver"><path d="M19 12H5 M11 18l-6-6 6-6"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-ubicacion"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z M15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-fecha"><path d="M8 3v4 M16 3v4 M4 9h16 M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-duracion"><path d="M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z M12 6v6l4 2"/></symbol>
+    </svg>
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="site-header__bar">
+          <a class="brand" href="./index.html">
+            <svg class="icon" aria-hidden="true"><use href="#icono-montana"></use></svg>
+            <span>Cota Baja</span>
+          </a>
+          <span class="site-header__context">Inscripción a la ruta</span>
+        </div>
+      </div>
+    </header>
+    <main id="contenido" tabindex="-1" class="container booking">
+      <a class="back-link" href="./index.html">
+        <svg class="icon" aria-hidden="true"><use href="#icono-volver"></use></svg>
+        Volver al inicio
+      </a>
+      <section aria-labelledby="titulo">
+        <header class="booking__intro">
+          <p class="eyebrow">Reserva · Circular de los Miradores</p>
+          <h1 id="titulo" class="display-title">Reserva tu plaza</h1>
+          <p class="lead">Completa tus datos para apuntarte a la próxima salida.</p>
+        </header>
+        <div class="booking__grid">
+          <aside class="summary" aria-labelledby="resumen">
+            <img class="landscape summary__image" src="./assets/sierra-resumen.svg" alt="" width="636" height="440">
+            <h2 id="resumen">Circular de los Miradores</h2>
+            <ul class="summary__details">
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#icono-ubicacion"></use></svg>
+                Cercedilla · Estación
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#icono-fecha"></use></svg>
+                <span>Sábado · <time datetime="09:00">09:00</time></span>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#icono-duracion"></use></svg>
+                3 horas · 7 km · Iniciación
+              </li>
+            </ul>
+          </aside>
+          <form class="booking-form" aria-labelledby="datos" aria-describedby="aviso">
+            <h2 id="datos">Tus datos</h2>
+            <div class="booking-form__fields">
+              <label class="field" for="nombre">
+                Nombre completo
+                <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej. Alex García" required>
+              </label>
+              <label class="field" for="correo">
+                Correo electrónico
+                <input id="correo" name="correo" type="email" autocomplete="email" placeholder="Ej. alex@correo.com" required>
+              </label>
+              <label class="field" for="personas">
+                Número de personas
+                <input id="personas" name="personas" type="number" inputmode="numeric" min="1" step="1" placeholder="Ej. 2" required>
+              </label>
+            </div>
+            <button class="button booking-form__action" type="submit" disabled>
+              Enviar inscripción
+              <svg class="icon" aria-hidden="true"><use href="#icono-flecha"></use></svg>
+            </button>
+            <p id="aviso" class="booking-form__note">Formulario de demostración. Los datos no se envían.</p>
+            <noscript><p class="booking-form__note">Activa JavaScript para probar la validación de la inscripción.</p></noscript>
+            <p class="booking-form__status" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container site-footer__content">
+        <a class="brand" href="./index.html">Cota Baja</a>
+        <p>Club ficticio de senderismo · Práctica DIW</p>
+      </div>
+    </footer>
+  </body>
+</html>

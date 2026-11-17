@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "sass:list";
+@use "variables" as v;
+
+@mixin respond-to($breakpoint) {
+  @if not map.has-key(v.$breakpoints, $breakpoint) {
+    @error "Punto de ruptura desconocido: #{$breakpoint}.";
+  }
+
+  @media (min-width: map.get(v.$breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin type($role, $screen: mobile) {
+  $scale: map.get(v.$type-scale, $screen, $role);
+  font-size: list.nth($scale, 1);
+  line-height: list.nth($scale, 2);
+}
+
+@mixin grid($columns, $gutter) {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: $gutter;
+}
+
+@mixin panel($background) {
+  background: $background;
+  border-radius: v.$radius;
+}
+
+@mixin focus-ring {
+  outline: v.$stroke solid v.$primary;
+  outline-offset: v.$space-xs;
+}

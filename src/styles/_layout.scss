@@ -1,0 +1,167 @@
+@use "globals" as g;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-block-size: 100vh;
+  flex-direction: column;
+  margin: 0;
+  background: g.$paper;
+  color: g.$ink;
+  font-family: g.$font-body, sans-serif;
+  @include g.type(body);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1, h2, h3, p, ul {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  color: g.$primary;
+  font-family: g.$font-title, sans-serif;
+  font-weight: g.$weight-bold;
+}
+
+h2 {
+  @include g.type(h2);
+
+  @include g.respond-to(desktop) {
+    @include g.type(h2, desktop);
+  }
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  @include g.focus-ring;
+}
+
+.container {
+  inline-size: min(100%, g.$page-width);
+  margin-inline: auto;
+  padding-inline: clamp(g.$space-base, 6.16vw, g.$mobile-margin);
+
+  @include g.respond-to(tablet) {
+    padding-inline: g.$space-xl;
+  }
+
+  @include g.respond-to(desktop) {
+    padding-inline: clamp(g.$space-xxl, 5vw, g.$desktop-margin);
+  }
+}
+
+.landing {
+  padding-block: g.$space-lg g.$space-40;
+
+  @include g.respond-to(desktop) {
+    padding-block: g.$desktop-landing-top g.$space-section;
+  }
+}
+
+.hero {
+  @include g.grid(g.$mobile-columns, g.$mobile-gutter);
+  row-gap: g.$space-lg;
+
+  > * {
+    grid-column: 1 / -1;
+    min-inline-size: 0;
+  }
+
+  @include g.respond-to(desktop) {
+    @include g.grid(g.$desktop-columns, g.$desktop-gutter);
+
+    &__content {
+      grid-column: span 5;
+      align-self: center;
+    }
+
+    &__image {
+      grid-column: span 7;
+    }
+  }
+}
+
+.outing {
+  margin-block-start: g.$space-40;
+
+  &__facts {
+    @include g.grid(g.$mobile-columns, g.$mobile-gutter);
+    margin-block-start: g.$space-20;
+    padding: 0;
+    list-style: none;
+  }
+
+  .fact {
+    grid-column: 1 / -1;
+  }
+
+  @include g.respond-to(tablet) {
+    &__facts {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fact {
+      grid-column: auto;
+    }
+  }
+
+  @include g.respond-to(desktop) {
+    margin-block-start: g.$space-64;
+
+    &__facts {
+      @include g.grid(g.$desktop-columns, g.$desktop-gutter);
+      margin-block-start: g.$space-28;
+    }
+
+    .fact {
+      grid-column: span 4;
+    }
+  }
+}
+
+.booking {
+  padding-block: g.$space-base g.$space-40;
+
+  &__intro {
+    margin-block: g.$space-20 g.$space-lg;
+  }
+
+  &__grid {
+    @include g.grid(g.$mobile-columns, g.$mobile-gutter);
+    row-gap: g.$space-lg;
+    align-items: start;
+
+    > * {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include g.respond-to(desktop) {
+    padding-block: g.$space-lg g.$space-xxl;
+
+    &__intro {
+      margin-block: g.$space-xl g.$space-40;
+    }
+
+    &__grid {
+      @include g.grid(g.$desktop-columns, g.$desktop-gutter);
+    }
+
+    .booking-form {
+      grid-area: 1 / 1 / auto / span 7;
+    }
+
+    .summary {
+      grid-area: 1 / 8 / auto / span 5;
+    }
+  }
+}

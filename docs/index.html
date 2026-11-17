@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cota Baja, club de senderismo. Descubre la próxima salida guiada en la Sierra de Guadarrama.">
+    <title>Cota Baja | Club de senderismo</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/montana.svg">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <svg class="icon-symbols" aria-hidden="true" width="0" height="0">
+      <symbol viewBox="0 0 24 24" id="icono-montana"><path d="M3 20 10 5l4.5 8 2.5-4 4 11H3Z M7 12l3 2 2.5-2"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-flecha"><path d="M5 12h14 M13 6l6 6-6 6"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-volver"><path d="M19 12H5 M11 18l-6-6 6-6"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-ubicacion"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z M15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-fecha"><path d="M8 3v4 M16 3v4 M4 9h16 M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icono-duracion"><path d="M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z M12 6v6l4 2"/></symbol>
+    </svg>
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="site-header__bar">
+          <a class="brand" href="./index.html" aria-current="page">
+            <svg class="icon" aria-hidden="true"><use href="#icono-montana"></use></svg>
+            <span>Cota Baja</span>
+          </a>
+          <span class="site-header__context">Club de senderismo</span>
+        </div>
+      </div>
+    </header>
+    <main id="contenido" tabindex="-1" class="container landing">
+      <section class="hero" aria-labelledby="titulo">
+        <div class="hero__content">
+          <p class="eyebrow">Senderismo en la Sierra de Guadarrama</p>
+          <h1 id="titulo" class="hero-title">Sal de la<br>ciudad.</h1>
+          <p class="lead hero__description">Rutas guiadas de un día para descubrir la sierra en grupos pequeños. Empieza por una caminata a tu ritmo.</p>
+          <a class="button hero__action" href="./formulario.html">
+            Reservar plaza
+            <svg class="icon" aria-hidden="true"><use href="#icono-flecha"></use></svg>
+          </a>
+        </div>
+        <img class="hero__image landscape" src="./assets/sierra.svg" alt="Ilustración de un sendero entre pinares y montañas" width="636" height="440" fetchpriority="high">
+      </section>
+      <section class="outing" aria-labelledby="salida">
+        <h2 id="salida">Próxima salida</h2>
+        <p class="lead outing__name">Circular de los Miradores</p>
+        <ul class="outing__facts">
+          <li class="fact">
+            <svg class="icon" aria-hidden="true"><use href="#icono-ubicacion"></use></svg>
+            <div class="fact__copy">
+              <h3>Cercedilla</h3>
+              <p>Punto de encuentro en la estación.</p>
+            </div>
+          </li>
+          <li class="fact">
+            <svg class="icon" aria-hidden="true"><use href="#icono-fecha"></use></svg>
+            <div class="fact__copy">
+              <h3>Sábado · <time datetime="09:00">09:00</time></h3>
+              <p>FECHA DE EJEMPLO · Grupo reducido.</p>
+            </div>
+          </li>
+          <li class="fact">
+            <svg class="icon" aria-hidden="true"><use href="#icono-duracion"></use></svg>
+            <div class="fact__copy">
+              <h3>3 horas</h3>
+              <p>7 km · Nivel iniciación.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container site-footer__content">
+        <a class="brand" href="./index.html">Cota Baja</a>
+        <p>Club ficticio de senderismo · Práctica DIW</p>
+      </div>
+    </footer>
+  </body>
+</html>
