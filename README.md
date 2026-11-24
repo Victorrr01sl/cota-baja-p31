@@ -95,7 +95,9 @@ Se incluyen etiquetas asociadas a los campos, foco visible, un enlace para salta
 
 La versión estática incluida en `docs/` se revisó a 320, 390, 640, 768, 1024 y 1440 px. Se comprobó el ajuste del contenido, la navegación entre ambas páginas y la validación del formulario. También se verificó la navegación en la web pública.
 
-Queda pendiente verificar el servidor de desarrollo y la compilación real con Vite. En el entorno de preparación falló la descarga de dependencias de npm. La copia estática de `docs/` se preparó mediante un proceso alternativo a partir de los archivos fuente. Ejecutar `npm run build` reemplazará esa copia por la salida de Vite.
+El autor confirmó el 24 de noviembre de 2026 que pudo abrir el proyecto en su equipo y que `npm run build` terminó sin errores. Con ello queda comprobada la compilación local con Vite y SASS.
+
+La copia estática publicada inicialmente en `docs/` se preparó mediante un proceso alternativo a partir de los archivos fuente. La compilación local genera la salida de Vite en `docs/`. Para publicar ese resultado, debe subirse al repositorio la carpeta actualizada.
 
 ## GitHub Pages
 
