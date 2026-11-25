@@ -1,102 +1,89 @@
 # Cota Baja · Práctica 3.1
 
-Landing y formulario responsive para un club ficticio de senderismo, desarrollados con HTML semántico, SASS y Vite a partir del sistema de diseño de la práctica 1.1.
+Esta es mi práctica 3.1 de Diseño de Interfaces Web (2.º de DAW). El objetivo era maquetar una landing y un formulario responsive con HTML, SASS y Vite, partiendo del diseño que hice en Figma para Cota Baja.
 
-- [Web publicada en GitHub Pages](https://victorrr01sl.github.io/cota-baja-p31/)
-- [Diseño de escritorio y móvil en Figma](https://www.figma.com/design/F77MmWw9TfOwpT6D1cWRyg?node-id=7-47)
+Cota Baja es un club de senderismo inventado. En la página principal se presenta el club y su próxima salida, y con el botón «Reservar plaza» se llega al formulario de inscripción.
 
-El prototipo incluye ambas pantallas a 1440 y 390 px, con un flujo de navegación para cada ancho.
+## Enlaces
 
-## Desarrollo local
+- [Ver la web publicada](https://victorrr01sl.github.io/cota-baja-p31/)
+- [Ver el diseño en Figma](https://www.figma.com/design/F77MmWw9TfOwpT6D1cWRyg)
 
-Se necesita una versión de Node.js que cumpla `^20.19.0 || >=22.12.0`, según `package.json`, y npm.
+## Cómo ejecutarlo
 
-1. Descarga o clona el repositorio y abre una terminal dentro de la carpeta que contiene `package.json`.
-2. Instala las dependencias.
+Necesitas Node.js instalado, en una versión que sea compatible con Vite 7.
 
-   ```bash
-   npm install
-   ```
+Abre una terminal en la carpeta del proyecto e instala las dependencias:
 
-3. Inicia el servidor de desarrollo.
+```bash
+npm install
+```
 
-   ```bash
-   npm run dev
-   ```
+Luego arranca el servidor de desarrollo:
 
-4. Abre la dirección que muestra la terminal. Vite actualiza la página al guardar cambios en `src/`.
-5. Detén el servidor con `Ctrl + C` cuando termines.
+```bash
+npm run dev
+```
 
-## Compilación y vista previa
+En la terminal aparecerá la dirección que tienes que abrir en el navegador.
 
-Desde la raíz del proyecto, genera la versión de producción.
+## Versión de producción
+
+Para generar la versión final:
 
 ```bash
 npm run build
 ```
 
-Vite toma `src/` como raíz y está configurado para compilar `index.html` y `formulario.html` en `docs/`. La configuración de entradas múltiples está en `build.rollupOptions.input`. La opción `base: './'` permite usar rutas relativas bajo el nombre del repositorio.
+Así se crean los archivos de las dos páginas dentro de la carpeta `docs`.
 
-Después de compilar, revisa el resultado con este comando y abre la dirección que indique la terminal.
+Si quieres ver esa versión en local antes de subirla:
 
 ```bash
 npm run preview
 ```
 
-Edita los archivos de `src/` y vuelve a compilar para actualizar la versión publicada.
+Lo he probado en mi ordenador y `npm run build` termina sin errores.
 
-## Organización
+## Cómo está organizado
 
-| Archivo o carpeta | Función |
-| --- | --- |
-| `src/index.html` | Landing del club y próxima salida |
-| `src/formulario.html` | Formulario y resumen de la ruta |
-| `src/main.js` | Importación de SASS y respuesta del formulario |
-| `src/styles/_variables.scss` | Valores del sistema de diseño y mapas |
-| `src/styles/_mixins.scss` | Reglas reutilizables y gestor de media queries |
-| `src/styles/_globals.scss` | Reenvío de variables y mixins |
-| `src/styles/_layout.scss` | Distribución general y rejillas |
-| `src/styles/_components.scss` | Botones, campos, tarjetas, cabecera y pie |
-| `src/styles/main.scss` | Entrada de los estilos |
-| `src/assets/` | Ilustraciones SVG, fuentes locales y sus licencias |
-| `docs/` | Sitio estático servido por GitHub Pages |
-| `vite.config.js` | Raíz, entradas HTML y carpeta de salida |
+- `src/index.html`: la página principal.
+- `src/formulario.html`: el formulario.
+- `src/main.js`: carga los estilos y gestiona el mensaje que aparece al enviar el formulario.
+- `src/assets`: imágenes, fuentes y sus licencias.
+- `src/styles`: los parciales de SASS.
+- `docs`: la versión que está publicada.
+- `vite.config.js`: aquí configuro las dos entradas HTML y la carpeta de salida.
 
-## Maquetación y SASS
+He separado los estilos en variables, mixins, estilos globales, layout y componentes, y `main.scss` los carga todos con `@use`.
 
-Los valores de color, espaciado, rejilla y escala tipográfica de Figma se trasladaron a `_variables.scss`. Este archivo contiene también los tamaños adicionales necesarios para la web.
+## Cómo he usado SASS
 
-- Los mapas `$breakpoints` y `$type-scale` organizan los puntos de ruptura y la tipografía.
-- Los mixins `respond-to`, `type`, `grid`, `panel` y `focus-ring` reutilizan las reglas de media queries, tipografía, rejillas, superficies y foco.
-- `_globals.scss` reenvía variables y mixins con `@forward`. Los parciales se cargan con `@use`.
-- El anidamiento organiza los elementos de cada componente y los estados `:hover`, `:active` y `:focus-visible`.
-- Los botones incluyen una transición de color que respeta la preferencia de movimiento reducido.
+En las variables están los colores, las fuentes, los tamaños y los espacios que salen en el diseño.
 
-La implementación sigue un enfoque mobile first.
+Uso dos mapas: uno para los breakpoints y otro para la escala tipográfica. Con los mixins evito repetir las reglas de las rejillas, la tipografía, los paneles y las media queries.
 
-| Ancho | Comportamiento |
-| --- | --- |
-| Menos de 640 px | Rejillas de cuatro columnas, bloques a todo el ancho y tarjetas apiladas |
-| Desde 640 px | Tarjetas de la landing en tres columnas; resumen y formulario apilados |
-| Desde 1024 px | Rejillas de doce columnas; presentación y zonas de inscripción en paralelo |
+También he usado anidamiento para ordenar cada componente junto con sus estados, por ejemplo, el cambio de color de los botones al pasar el ratón por encima.
 
-La landing reparte su presentación en cinco columnas para el texto y siete para la ilustración en escritorio. En la inscripción, el formulario ocupa siete columnas y el resumen cinco. En móvil, el resumen aparece antes de los campos.
+## Responsive
 
-Las tipografías Bricolage Grotesque y DM Sans se sirven desde el proyecto. Sus licencias están junto a las fuentes, en `src/assets/fonts/`. Los dos HTML las referencian con `<link rel="license">` para que Vite las incluya en la salida de producción.
+Empecé por la versión móvil y fui ampliando desde ahí:
 
-## Formulario y accesibilidad
+- En pantallas pequeñas todo va en una sola columna.
+- A partir de 640 px, las tarjetas de la página principal se ponen en fila.
+- A partir de 1024 px, paso a una rejilla de doce columnas y el formulario se coloca al lado del resumen de la ruta.
 
-El formulario utiliza `required`, `type="email"`, `min="1"` y `step="1"` para la validación del navegador. JavaScript evita el envío y muestra un mensaje de demostración. Los datos permanecen en la página.
+En móvil he puesto el resumen de la salida antes del formulario, para que se vea primero qué estás reservando.
 
-Se incluyen etiquetas asociadas a los campos, foco visible, un enlace para saltar al contenido, textos alternativos y una región `role="status"` para el resultado.
+## El formulario
 
-## Comprobaciones realizadas
+El formulario comprueba que estén rellenos los campos obligatorios, que el correo tenga un formato válido y que el número de personas sea un número entero mayor que cero.
 
-La versión estática incluida en `docs/` se revisó a 320, 390, 640, 768, 1024 y 1440 px. Se comprobó el ajuste del contenido, la navegación entre ambas páginas y la validación del formulario. También se verificó la navegación en la web pública.
+Si todo está bien, aparece un mensaje de confirmación. Es solo una demostración: no se hace ninguna reserva real ni se envían los datos a ningún servidor.
 
-El autor confirmó el 24 de noviembre de 2026 que pudo abrir el proyecto en su equipo y que `npm run build` terminó sin errores. Con ello queda comprobada la compilación local con Vite y SASS.
+## Publicación
 
-La copia estática publicada inicialmente en `docs/` se preparó mediante un proceso alternativo a partir de los archivos fuente. La compilación local genera la salida de Vite en `docs/`. Para publicar ese resultado, debe subirse al repositorio la carpeta actualizada.
+La web está en GitHub Pages y se sirve desde la carpeta `docs` de la rama `main`. En esa carpeta está la compilación que genero con Vite y que subo al repositorio.
 
 ## GitHub Pages
 
