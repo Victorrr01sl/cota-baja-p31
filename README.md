@@ -58,8 +58,7 @@ Edita los archivos de `src/` y vuelve a compilar para actualizar la versión pub
 | `src/styles/_layout.scss` | Distribución general y rejillas |
 | `src/styles/_components.scss` | Botones, campos, tarjetas, cabecera y pie |
 | `src/styles/main.scss` | Entrada de los estilos |
-| `src/assets/` | Ilustraciones SVG y fuentes locales |
-| `src/public/` | Licencias y archivos que se copian directamente a la salida |
+| `src/assets/` | Ilustraciones SVG, fuentes locales y sus licencias |
 | `docs/` | Sitio estático servido por GitHub Pages |
 | `vite.config.js` | Raíz, entradas HTML y carpeta de salida |
 
@@ -83,7 +82,7 @@ La implementación sigue un enfoque mobile first.
 
 La landing reparte su presentación en cinco columnas para el texto y siete para la ilustración en escritorio. En la inscripción, el formulario ocupa siete columnas y el resumen cinco. En móvil, el resumen aparece antes de los campos.
 
-Las tipografías Bricolage Grotesque y DM Sans se sirven desde el proyecto. Sus licencias están en `src/public/licenses/`.
+Las tipografías Bricolage Grotesque y DM Sans se sirven desde el proyecto. Sus licencias están junto a las fuentes, en `src/assets/fonts/`. Los dos HTML las referencian con `<link rel="license">` para que Vite las incluya en la salida de producción.
 
 ## Formulario y accesibilidad
 
